@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	npm install -g @tailsec/scan-k8s
+
+override_dh_install:
+	dh_install --exclude=bin

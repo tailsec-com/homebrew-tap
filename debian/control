@@ -1,0 +1,14 @@
+Source: tailsec-scan-k8s
+Section: devel
+Priority: optional
+Maintainer: Tailsec <security@tailsec.io>
+Build-Depends: nodejs (>= 18)
+Standards-Version: 4.6.0
+
+Package: tailsec-scan-k8s
+Depends: nodejs (>= 18)
+Description: Kubernetes security scanner
+ Tailsec scanner for Kubernetes manifests.
+ .
+ Supports scanning Kubernetes YAML files for security misconfigurations,
+ compliance violations, and best practices.

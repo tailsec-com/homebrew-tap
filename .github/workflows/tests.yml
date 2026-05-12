@@ -1,0 +1,44 @@
+name: Homebrew Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        formula:
+          - scan-k8s
+          - scan-terraform
+          - scan-docker
+          - scan-secrets
+          - scan-deps
+          - scan-license
+          - scan-cfn
+          - scan-sast
+          - scan-aws
+          - scan-azure
+          - scan-gcp
+          - scan-helm
+          - scan-kustomize
+          - scan-code
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap repo
+        run: |
+          mkdir -p $HOME/.local/Homebrew/Library/Taps/tailsec-com/homebrew-tap
+          cp -r ${{ github.workspace }}/Formula $HOME/.local/Homebrew/Library/Taps/tailsec-com/homebrew-tap/
+
+      - name: Install scanner
+        run: brew install ${{ matrix.formula }}
+
+      - name: Run test
+        run: ${{ matrix.formula }} --help
