@@ -82,3 +82,5 @@ brew uninstall tailsec-com/tailsec/scan-k8s
 ## License
 
 MIT License - see individual scanner repositories for details.
+
+[![advertisement](https://ads.servead.net/i/de30e2d6-7d3b-44eb-b625-b74055a9e1e1.svg)](https://ads.servead.net/c/de30e2d6-7d3b-44eb-b625-b74055a9e1e1)
